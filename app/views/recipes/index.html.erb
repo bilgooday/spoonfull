@@ -1,0 +1,10 @@
+<h1>Recipes</h1>
+
+<% @recipes.each do |recipe| %>
+  <article>
+    <h3> <%= link_to recipe.title, recipe_path(recipe) %> </h3>
+    <p> <%= recipe.user.email %> </p>
+    <time>Updated<%= recipe.updated_at %> </time>
+    <p> <%= recipe.description %> </p>
+  </article>
+<% end %>
