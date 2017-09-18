@@ -2,32 +2,37 @@ class RecipesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
     def index
-      @recipes = recipe.all
+      @search_term = params[:looking_for] || 'chocolate'
+      @recipes = Recipe.all
+    end
+
+    def home
+      @recipes = Recipe.all
     end
 
     def new
-      @recipe = recipe.new
+      @recipe = Recipe.new
     end
 
     def create
-      @recipe = recipe.create!(recipe_params.merge(user: current_user))
+      @recipe = Recipe.create!(recipe_params.merge(user: current_user))
       redirect_to recipe_path(@recipe)
-    end
+    endzx
 
     def show
-      @recipe = recipe.find(params[:id])
+      @recipe = Recipe.find(params[:id])
     end
 
 
     def edit
-      @recipe = recipe.find(params[:id])
+      @recipe = Recipe.find(params[:id])
       # if @recipe.user != current_user
       #   flash[:alert] = "Only the author of the post can edit"
       #   redirect_to recipe_path(@recipe)
     end
 
     def update
-      @recipe = recipe.find(params[:id])
+      @recipe = Recipe.find(params[:id])
     if @recipe.user === current_user
       @recipe.update(recipe_params)
     else
@@ -37,7 +42,7 @@ class RecipesController < ApplicationController
     end
 
     def destroy
-      @recipe = recipe.find(params[:id])
+      @recipe = Recipe.find(params[:id])
       @recipe.destroy
       redirect_to recipes_path
     end
@@ -48,3 +53,4 @@ class RecipesController < ApplicationController
     end
 
   end
+end

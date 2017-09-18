@@ -1,9 +1,17 @@
-<header>
-
 <h1> Foodies Anonymous </h1>
 
 <h2> Discover your next favorite dish... </h2>
-<button> See More </button>
+<button id="more"> See More </button>
 
-</header>
 <hr>
+
+<div id="home-wrapper">
+<% @recipes.each do |recipe| %>
+  <div class="home-thumbnails" style="background: url(<%= recipe.img_url %>)" id=<%= "thumb#{recipe.id}" %>>
+    <p id="thumb-text"> <%= link_to recipe.title, recipe_path(recipe) %> </p>
+    <!-- <p> <%= recipe.user.email %> </p> -->
+    <!-- <time>Updated<%= recipe.updated_at %> </time> -->
+    <!-- <img src="<%= recipe.img_url %>"> -->
+  </div>
+<% end %>
+</div>

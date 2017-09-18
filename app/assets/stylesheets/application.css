@@ -22,7 +22,8 @@
 
  a {
    color: orange;
-   font-family: 'Pacifico';
+   /*font-family: 'Pacifico';*/
+   text-decoration: none;
  }
 
  h1 {
@@ -35,14 +36,40 @@
    font-size: 35px;
  }
 
+ /*img {
+   object-fit: contain;
+ }*/
+
  #wrapper {
    display: flex;
    background-color: black;
  }
 
+ #home-wrapper {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: space-around;
+ }
+
+ #thumb-text {
+   position: relative;
+   top: 50%;
+   transform: translateY(-50%);
+   background: rgba(0, 0, 0, .5);
+   line-height: 50px;
+ }
+
  .cells {
    flex-direction: row;
    background-color: black;
+ }
+
+ .home-thumbnails {
+   width: 350px;
+   height: 350px;
+   object-fit: contain;
+   border-radius: 300px;
  }
 
  button {

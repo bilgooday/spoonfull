@@ -4,7 +4,14 @@ Rails.application.routes.draw do
 
   resources :recipes do
     resources :comments
-    resources :favorites
+  end
+
+  resources :recipes, only: [:index, :show] do
+    member do
+      post 'add_favorite'
+      delete 'remove_favorite'
+    end
+  end
   end
 
   # get 'comments/new'
@@ -22,4 +29,3 @@ Rails.application.routes.draw do
   # get 'recipes/show'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-end
