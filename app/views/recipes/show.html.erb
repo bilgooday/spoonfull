@@ -6,5 +6,5 @@
   <p><%= @recipe.description %></p>
   <%= link_to "Edit recipe", edit_recipe_path(@recipe) %>
   <%= link_to "Delete recipe", recipe_path(@recipe), method: :delete %>
-
+  <%= link_to "&hearts;".html_safe, add_favorite_recipe_path(course), method: :delete, class: "fav" %>
 </article>

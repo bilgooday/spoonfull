@@ -3,15 +3,31 @@
 <h2> Discover your next favorite dish... </h2>
 <button id="more"> See More </button>
 
+<%= form_tag(recipes_path, :method => "get", id: "looking-for") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Recipes" %>
+    <%= submit_tag "Search", :name => nil %>
+<% end %>
+
 <hr>
 
 <div id="home-wrapper">
 <% @recipes.each do |recipe| %>
   <div class="home-thumbnails" style="background: url(<%= recipe.img_url %>)" id=<%= "thumb#{recipe.id}" %>>
     <p id="thumb-text"> <%= link_to recipe.title, recipe_path(recipe) %> </p>
-    <!-- <p> <%= recipe.user.email %> </p> -->
-    <!-- <time>Updated<%= recipe.updated_at %> </time> -->
-    <!-- <img src="<%= recipe.img_url %>"> -->
+
+    <% if current_user %>
+      <% if recipe.users.include? current_user %>
+        <%= link_to "&hearts;".html_safe, remove_favorite_recipe_path(recipe), method: :delete, class: "fav" %>
+      <% else %>
+        <%= link_to "&hearts;".html_safe, add_favorite_recipe_path(recipe), method: :post, class: "no-fav" %>
+      <% end %>
+    <% end %>
   </div>
 <% end %>
 </div>
+
+<ul>
+<% current_user.favorites.includes(:recipe).each do |fav| %>
+  <li><%= fav.recipe.title %> </li>
+<% end %>
+</ul>

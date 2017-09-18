@@ -1,18 +1,18 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'recipes#index'
+  root to: 'recipes#home'
 
   resources :recipes do
     resources :comments
   end
 
-  resources :recipes, only: [:index, :show] do
+  resources :recipes, only: [:index, :show, :home] do
     member do
       post 'add_favorite'
       delete 'remove_favorite'
     end
   end
-  end
+end
 
   # get 'comments/new'
   #

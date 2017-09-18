@@ -84,3 +84,13 @@
  button:hover {
    border-color: orange;
  }
+
+ a.fav {
+  text-decoration: none;
+  color: red;
+}
+
+a.no-fav {
+  text-decoration: none;
+  color: black;
+}
