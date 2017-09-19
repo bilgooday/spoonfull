@@ -10,9 +10,9 @@
     <p id="thumb-text"> <%= link_to recipe.title, recipe_path(recipe) %> </p>
     <% if current_user %>
       <% if recipe.users.include? current_user %>
-        <%= link_to "&#9733;".html_safe, remove_external_favorite_search_path(recipe), method: :delete, class: "fav" %>
+        <%= link_to "&#9733;".html_safe, remove_external_favorite_recipe_path(recipe), method: :delete, class: "fav" %>
       <% else %>
-        <%= link_to "&#9733;".html_safe, add_external_favorite_search_path(recipe), method: :post, class: "no-fav" %>
+        <%= link_to "&#9733;".html_safe, add_external_favorite_recipe_path(recipe), method: :post, class: "no-fav" %>
       <% end %>
     <% end %>
   </div>

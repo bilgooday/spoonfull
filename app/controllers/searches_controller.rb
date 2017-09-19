@@ -1,18 +1,25 @@
 class SearchesController < ApplicationController
-  def results
+  def home #rename send_password_change_notification
     @search_term = params[:search]
     @recipes = Search.for(@search_term)
   end
 
-  def add_external_favorite
-    @recipe = Recipe.find(params[:id])
-    @recipe.favorites.create(user: current_user)
-    redirect_to searches_results_path
+
+  def dashboard # fav index
+    @recipes = Search.all
   end
 
-  def remove_external_favorite
-    Favorite.find_by(user: current_user, recipe_id: params[:id]).destroy
-    redirect_to searches_results_path
+  def new
+    @recipe = Search.new
+  end
+
+  def create
+    @recipe = Recipe.create!(recipe_params.merge(user: current_user))
+    redirect_to recipe_path(@recipe)
+  end
+
+  def show
+    @recipe = Recipe.find(params[:id])
   end
 
 end
