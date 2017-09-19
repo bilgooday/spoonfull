@@ -4,7 +4,7 @@
 <% if current_user %>
 <% current_user.favorites.includes(:recipe).each do |fav| %>
   <div class="home-thumbnails" style="background: url(<%= fav.recipe.img_url %>)" id=<%= "thumb#{fav.recipe.id}" %>>
-      <p id="thumb-text"> <%= link_to fav.recipe.title, @recipe.source %> </p>
+      <p id="thumb-text"> <%= link_to fav.recipe.title, fav.recipe.source %> </p>
   </div>
 <% end %>
 <% end %>

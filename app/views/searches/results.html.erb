@@ -1,0 +1,21 @@
+<h1>Results for: <%= @search_term %></h1>
+
+<% if (@recipes.nil? or @recipes == []) %>
+<p> <h2>No recipes found.. Sorry</h2></p>
+<% else %>
+
+<div id="home-wrapper">
+<% @recipes.each do |recipe| %>
+  <div class="home-thumbnails" style="background: url(<%= recipe.img_url %>)" id=<%= "thumb#{recipe.id}" %>>
+    <p id="thumb-text"> <%= link_to recipe.title, recipe_path(recipe) %> </p>
+    <% if current_user %>
+      <% if recipe.users.include? current_user %>
+        <%= link_to "&#9733;".html_safe, remove_external_favorite_search_path(recipe), method: :delete, class: "fav" %>
+      <% else %>
+        <%= link_to "&#9733;".html_safe, add_external_favorite_search_path(recipe), method: :post, class: "no-fav" %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+</div>
+<% end %>

@@ -1,0 +1,9 @@
+<h1> Foodies Anonymous </h1>
+
+<h2> Discover your next favorite dish... </h2>
+
+<div id="home-wrapper">
+  <%= form_tag(searches_results_path, :method => "get", id: "looking-for") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Type ingredient or recipe here and hit 'ENTER'" %>
+      <!-- <%= submit_tag "Go!", :name => nil %> -->
+  <% end %>

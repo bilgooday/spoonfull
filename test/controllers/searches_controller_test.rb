@@ -1,18 +1,13 @@
 require 'test_helper'
 
 class SearchesControllerTest < ActionDispatch::IntegrationTest
-  test "should get index" do
-    get searches_index_url
+  test "should get home" do
+    get searches_home_url
     assert_response :success
   end
 
-  test "should get new" do
-    get searches_new_url
-    assert_response :success
-  end
-
-  test "should get show" do
-    get searches_show_url
+  test "should get results" do
+    get searches_results_url
     assert_response :success
   end
 
