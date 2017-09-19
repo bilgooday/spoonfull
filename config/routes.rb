@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'searches/index'
+
+  get 'searches/new'
+
+  get 'searches/show'
+
   devise_for :users
   root to: 'recipes#home'
 

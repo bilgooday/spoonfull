@@ -1,4 +1,4 @@
-class Recipe < ApplicationRecord
+class Search < ApplicationRecord
   include HTTParty
   # validates :f2f_id, :uniqueness => true
   # check out figaro
@@ -10,7 +10,7 @@ class Recipe < ApplicationRecord
   def self.for term
     response = get("/search", query: { q: term})["recipes"]
     recipe_data = response.map do |r|
-      new_entry = Recipe.new
+      new_entry = Search.new
       new_entry.f2f_id = r['recipe_id']
       new_entry.title = r['title']
       new_entry.img_url = r['image_url']

@@ -1,9 +1,11 @@
 <h1> User Dashboard </h1>
 
+<div id="home-wrapper">
 <% if current_user %>
-<ul>
 <% current_user.favorites.includes(:recipe).each do |fav| %>
-  <li><%= fav.recipe.title %> </li>
+  <div class="home-thumbnails" style="background: url(<%= fav.recipe.img_url %>)" id=<%= "thumb#{fav.recipe.id}" %>>
+      <p id="thumb-text"> <%= link_to fav.recipe.title, @recipe.source %> </p>
+  </div>
 <% end %>
-</ul>
 <% end %>
+</div<

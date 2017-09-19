@@ -63,14 +63,14 @@ class RecipesController < ApplicationController
     end
 
     def add_external_favorite
-      @recipe = Recipe.find(params[:recipe_id])
+      @recipe = Recipe.find(params[:id])
       @recipe.favorites.create(user: current_user)
-      redirect_to :root
+      redirect_to recipes_path
     end
 
     def remove_external_favorite
       Favorite.find_by(user: current_user, recipe_id: params[:id]).destroy
-      redirect_to :root
+      redirect_to recipes_path
     end
 
     private

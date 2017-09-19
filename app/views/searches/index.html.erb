@@ -1,0 +1,11 @@
+<h1> Foodies Anonymous </h1>
+
+<h2> Discover your next favorite dish... </h2>
+<button id="more"> See More </button>
+
+<%= form_tag(recipes_path, :method => "get", id: "looking-for") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Recipes" %>
+    <%= submit_tag "Search", :name => nil %>
+<% end %>
+
+<hr>
