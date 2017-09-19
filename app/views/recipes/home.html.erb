@@ -17,17 +17,19 @@
 
     <% if current_user %>
       <% if recipe.users.include? current_user %>
-        <%= link_to "&hearts;".html_safe, remove_favorite_recipe_path(recipe), method: :delete, class: "fav" %>
+        <%= link_to "&#9733;".html_safe, remove_favorite_recipe_path(recipe), method: :delete, class: "fav" %>
       <% else %>
-        <%= link_to "&hearts;".html_safe, add_favorite_recipe_path(recipe), method: :post, class: "no-fav" %>
+        <%= link_to "&#9733;".html_safe, add_favorite_recipe_path(recipe), method: :post, class: "no-fav" %>
       <% end %>
     <% end %>
   </div>
 <% end %>
 </div>
 
+<% if current_user %>
 <ul>
 <% current_user.favorites.includes(:recipe).each do |fav| %>
   <li><%= fav.recipe.title %> </li>
 <% end %>
 </ul>
+<% end %>

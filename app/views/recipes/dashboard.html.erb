@@ -1,0 +1,9 @@
+<h1> User Dashboard </h1>
+
+<% if current_user %>
+<ul>
+<% current_user.favorites.includes(:recipe).each do |fav| %>
+  <li><%= fav.recipe.title %> </li>
+<% end %>
+</ul>
+<% end %>

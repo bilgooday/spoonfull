@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     member do
       post 'add_favorite'
       delete 'remove_favorite'
+      post 'add_external_favorite'
+      delete 'remove_external_favorite'
+      get 'dashboard'
     end
   end
 end

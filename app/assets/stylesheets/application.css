@@ -87,10 +87,10 @@
 
  a.fav {
   text-decoration: none;
-  color: red;
+  color: orange;
 }
 
 a.no-fav {
   text-decoration: none;
-  color: black;
+  color: white;
 }

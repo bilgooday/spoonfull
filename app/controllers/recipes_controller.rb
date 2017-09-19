@@ -1,12 +1,16 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
-    def index
+    def index #rename send_password_change_notification
       @search_term = params[:search]
       @recipes = Recipe.for(@search_term)
     end
 
-    def home
+    def home # rename index
+      @recipes = Recipe.all
+    end
+
+    def dashboard # fav index
       @recipes = Recipe.all
     end
 
