@@ -9,7 +9,7 @@
   <div id="dropdown" class="dropdown-content">
     <p> <%= link_to "View Recipe", fav.recipe.source %> </p>
     <hr>
-    <p> <%= link_to "Remove from Cookbook", remove_external_favorite_recipe_path(fav), method: :delete, class: "no-fav" %> </p>
+    <p> <%= link_to "Remove from Cookbook", remove_external_favorite_search_path(fav), method: :delete, class: "no-fav" %> </p>
   </div>
 
      <!-- <iframe id="frame" src="" width="100%" height="300">
@@ -17,4 +17,4 @@
   </div>
 <% end %>
 <% end %>
-</div<
+</div>

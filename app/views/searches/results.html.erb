@@ -1,20 +1,27 @@
-<h1>Results for: <%= @search_term %></h1>
+<h1>Results for:</h1>
 
+<%= form_tag(searches_results_path, :method => "get", id: "looking-for") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "type ingredient or recipe here..." %>
+    <!-- <%= submit_tag "Go!", :name => nil %> -->
+<% end %>
+
+<% if current_user %>
+<h3 id="instructions"> Click on a recipe to add it to your cookbook! </h3>
+<% else %>
+<h3 id="instructions"> You must be signed in to save recipes! </h3>
+<% end %>
 <% if (@recipes.nil? or @recipes == []) %>
 <p> <h2>No recipes found.. Sorry</h2></p>
 <% else %>
 
-<div id="home-wrapper">
+<div id="dash-wrapper">
 <% @recipes.each do |recipe| %>
-  <div class="home-thumbnails" style="background: url(<%= recipe.img_url %>)" id=<%= "thumb#{recipe.id}" %>>
-    <p id="thumb-text"> <%= link_to recipe.title, recipe_path(recipe) %> </p>
+  <div class="thumbnails" style="background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(<%= recipe.img_url %>)" id=<%= "thumb#{recipe.id}" %>>
     <% if current_user %>
-      <% if recipe.users.include? current_user %>
-        <%= link_to "&#9733;".html_safe, remove_external_favorite_recipe_path(recipe), method: :delete, class: "fav" %>
-      <% else %>
-        <%= link_to "&#9733;".html_safe, add_external_favorite_recipe_path(recipe), method: :post, class: "no-fav" %>
+    <p id="thumb-text"><%= link_to recipe.title, add_external_favorite_search_path(recipe, :search => params[:search]), method: :post, class: "fav" %> </p>
+    <% else %>
+    <p id="thumb-text"><%= link_to recipe.title, recipe.source %> </p>
       <% end %>
-    <% end %>
   </div>
 <% end %>
 </div>

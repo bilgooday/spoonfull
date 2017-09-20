@@ -5,12 +5,11 @@ Rails.application.routes.draw do
 
   get 'searches/show'
 
+  get 'searches/results'
+
   devise_for :users
   root to: 'searches#home'
 
-  resources :recipes do
-    resources :comments
-  end
 
   resources :users do
     member do
@@ -18,10 +17,15 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :searches do
+    member do
+      post 'add_external_favorite'
+      delete 'remove_external_favorite'
+    end
+  end
+
   resources :recipes, only: [:index, :show, :home] do
     member do
-      post 'add_favorite'
-      delete 'remove_favorite'
       post 'add_external_favorite'
       delete 'remove_external_favorite'
       get 'dashboard'

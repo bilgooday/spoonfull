@@ -2,7 +2,7 @@ class Recipe < ApplicationRecord
   include HTTParty
   # validates :f2f_id, :uniqueness => true
   # check out figaro
-  ENV["FOOD2FORK_KEY"] = '66b0beee88b465a1e7f21edcb82ba7db'
+  ENV["FOOD2FORK_KEY"] = '3be704f8bb71f8a1151a3a0c85e81b38'
   base_uri 'http://food2fork.com/api'
   default_params key: ENV["FOOD2FORK_KEY"]
   format :json
