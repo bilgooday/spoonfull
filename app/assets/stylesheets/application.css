@@ -54,6 +54,11 @@
    font-size: 18px;
  }
 
+label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+}
+
  #logo {
    font-size: 35px;
    font-family: 'Pacifico', cursive;
