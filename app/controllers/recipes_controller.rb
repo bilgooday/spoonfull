@@ -51,26 +51,27 @@ class RecipesController < ApplicationController
       redirect_to recipes_path
     end
 
-    def add_favorite
-      @recipe = Recipe.find(params[:id])
-      @recipe.favorites.create(user: current_user)
-      redirect_to :root
-    end
-
-    def remove_favorite
-      Favorite.find_by(user: current_user, recipe_id: params[:id]).destroy
-      redirect_to :root
-    end
+    # def add_favorite
+    #   @recipe = Recipe.find(params[:id])
+    #   @recipe.favorites.create(user: current_user)
+    #   redirect_to :root
+    # end
+    #
+    # def remove_favorite
+    #   Favorite.find_by(user: current_user, recipe_id: params[:id]).destroy
+    #   redirect_to :root
+    # end
 
     def add_external_favorite
       @recipe = Recipe.find(params[:id])
       @recipe.favorites.create(user: current_user)
-      redirect_to recipes_path
+      redirect_to recipes_path(:search => (params[:search]))
     end
 
     def remove_external_favorite
-      Favorite.find_by(user: current_user, recipe_id: params[:id]).destroy
-      redirect_to recipes_path
+      @favorite = Favorite.find(params[:id])
+      @favorite.destroy
+      redirect_to dashboard_recipe_path
     end
 
     private

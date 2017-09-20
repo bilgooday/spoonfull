@@ -6,32 +6,38 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/css?family=Catamaran" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   </head>
 
-  <body>
+  <header>
 
-    <!--<logo>--> <nav> <%= link_to "Home", root_path %> | <%= link_to "Dashboard", dashboard_recipe_path(current_user) %> 
- | Menu 3 </nav>
+<!-- <div class="menu"></div>
+<div class="menu"></div>
+<div class="menu"></div>
+<div id="dropdown" class="dropdown-content">
+  <p> Test Item </p>
+  <p> Test Item </p>
+</div> -->
+
+    <nav><h4><%= link_to "Home", root_path %> |  <% if current_user %>
+      <%= link_to "Log Out", destroy_user_session_path, :method => :delete %> |
+      <%= link_to "My Cookbook", dashboard_recipe_path(current_user) %>
+      <% else %>
+        <div id="sign-in">
+          <%= link_to "Sign Up", new_user_registration_path %> |
+          <%= link_to 'Login', new_user_session_path %>
+        </div>
+      <% end %> </h4></nav>
+  </header>
+
+  <body>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
 
-<div id="wrapper">
-</div>
-
-<% if current_user %>
-    <%= link_to "Log Out", destroy_user_session_path, :method => :delete %>
-  <% else %>
-    <div id="sign-in">
-      <%= link_to "Sign Up", new_user_registration_path %>
-      <%= link_to 'Login', new_user_session_path %>
-    </div>
-  <% end %>
-
     <%= yield %>
   </body>
+
 </html>

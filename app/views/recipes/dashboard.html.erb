@@ -1,10 +1,19 @@
 <h1> My Cookbook </h1>
 
-<div id="home-wrapper">
+<div id="dash-wrapper">
 <% if current_user %>
 <% current_user.favorites.includes(:recipe).each do |fav| %>
-  <div class="home-thumbnails" style="background: url(<%= fav.recipe.img_url %>)" id=<%= "thumb#{fav.recipe.id}" %>>
-      <p id="thumb-text"> <%= link_to fav.recipe.title, fav.recipe.source %> </p>
+  <div class="thumbnails" style="background: url(<%= fav.recipe.img_url %>)" id=<%= "thumb#{fav.recipe.id}" %>>
+      <p id="thumb-text"> <%= fav.recipe.title %> </p>
+
+  <div id="dropdown" class="dropdown-content">
+    <p> <%= link_to "View Recipe", fav.recipe.source %> </p>
+    <hr>
+    <p> <%= link_to "Remove from Cookbook", remove_external_favorite_recipe_path(fav), method: :delete, class: "no-fav" %> </p>
+  </div>
+
+     <!-- <iframe id="frame" src="" width="100%" height="300">
+     </iframe> -->
   </div>
 <% end %>
 <% end %>
