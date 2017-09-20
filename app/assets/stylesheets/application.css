@@ -19,9 +19,10 @@
   }
 
  body {
-   background-color: rgba(29,	29,	29, .85);
    color: white;
    text-align: center;
+   background-color: #0a0a0a;
+   background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
  }
 
  a {
@@ -46,6 +47,11 @@
  h4 {
    font-size: 20px;
    font-family: 'Poppins', sans-serif;
+ }
+
+ h3 {
+   font-family: 'Poppins', sans-serif;
+   font-size: 18px;
  }
 
  #logo {
@@ -102,9 +108,10 @@
    line-height: 50px;
    font-family: 'Hammersmith One', sans-serif;
    color: white;
-   font-size: 15px;
+   font-size: 20px;
    font-weight: bold;
    text-transform: uppercase;
+   padding: 5px;
  }
 
  #search {
@@ -112,10 +119,11 @@
    height: 60px;
    border: none;
    font-size: 35px;
-   background-color: rgba(62,	62, 62, .5);
+   background-color: #0a0a0a;
    color: rgba(250,	128,	114,	1);
    border-bottom: 2px solid white;
    text-align: center;
+   background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
  }
 
  #instructions {
@@ -134,8 +142,8 @@
    border-radius: 300px;
    margin: 20px;
    cursor: pointer;
-   background-color: rgba(0, 0, 0, .5);
    box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.5);
+   background-blend-mode: multiply;
  }
 
  .thumbnails:hover {

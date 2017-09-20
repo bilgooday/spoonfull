@@ -3,7 +3,7 @@
 <div id="dash-wrapper">
 <% if current_user %>
 <% current_user.favorites.includes(:recipe).each do |fav| %>
-  <div class="thumbnails" style="background: url(<%= fav.recipe.img_url %>)" id=<%= "thumb#{fav.recipe.id}" %>>
+  <div class="thumbnails" style="background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(<%= fav.recipe.img_url %>)" id=<%= "thumb#{fav.recipe.id}" %>>
       <p id="thumb-text"> <%= fav.recipe.title %> </p>
 
   <div id="dropdown" class="dropdown-content">
