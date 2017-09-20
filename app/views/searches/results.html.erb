@@ -18,10 +18,15 @@
 <% @recipes.each do |recipe| %>
   <div class="thumbnails" style="background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(<%= recipe.img_url %>)" id=<%= "thumb#{recipe.id}" %>>
     <% if current_user %>
-    <p id="thumb-text"><%= link_to recipe.title, add_external_favorite_search_path(recipe, :search => params[:search]), method: :post, class: "fav" %> </p>
+    <p id="thumb-text"><%= recipe.title %> </p>
     <% else %>
     <p id="thumb-text"><%= link_to recipe.title, recipe.source %> </p>
       <% end %>
+      <div id="dropdown" class="dropdown-content">
+        <p> <%= link_to "View Recipe", recipe.source %> </p>
+        <hr>
+        <p> <%= link_to "Add to Cookbook", add_external_favorite_search_path(recipe, :search => params[:search]), method: :post, class: "fav" %> </p>
+      </div>
   </div>
 <% end %>
 </div>

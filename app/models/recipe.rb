@@ -7,6 +7,7 @@ class Recipe < ApplicationRecord
   default_params key: ENV["FOOD2FORK_KEY"]
   format :json
 
+
   def self.for term
     response = get("/search", query: { q: term})["recipes"]
     recipe_data = response.map do |r|

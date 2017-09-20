@@ -3,13 +3,14 @@ $(document).ready(function(){
 $('#dropdown').hide();
 
 $('.thumbnails').click(showMenu);
+$('.thumbnails').click(hideMenu);
 
 function showMenu() {
-  $(this).find("#dropdown").show()
+  $(this).find("#dropdown").show(200)
 }
 
 function hideMenu() {
-  $('#dropdown').hide();
+  $(this).find("#dropdown").hide()
 }
 
 // $(".thumbnails").click(loadSite);

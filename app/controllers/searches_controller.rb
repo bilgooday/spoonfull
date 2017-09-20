@@ -12,7 +12,7 @@ class SearchesController < ApplicationController
   def add_external_favorite
      @recipe = Recipe.find(params[:id])
      @recipe.favorites.create(user: current_user)
-     redirect_to searches_results_path(:search => (params[:search]))
+    #  redirect_to searches_results_path(:search => (params[:search]))
    end
 
    def remove_external_favorite
