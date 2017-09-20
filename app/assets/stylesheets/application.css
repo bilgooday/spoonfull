@@ -13,39 +13,74 @@
  *= require_tree .
  *= require_self
  */
+ header {
+    margin: 0;
+    padding: 0;
+  }
 
  body {
-   /*background-color: rgba(60, 60, 60, .8);*/
-   background-color: rgba(29,	29,	29, .8);
+   background-color: rgba(29,	29,	29, .85);
    color: white;
    text-align: center;
  }
 
  a {
    color: white;
-   /*font-family: 'Pacifico';*/
    text-decoration: none;
  }
 
  h1 {
    font-family: 'Pacifico', cursive;
    font-weight: 500;
-   font-size: 75px;
+   font-size: 80px;
    color: rgba(250,	128,	114,	1);
+   margin-top: 100px;
  }
 
  h2 {
-   font-size: 35px;
-   margin-bottom: 75px;
+   font-size: 25px;
+   margin-bottom: 50px;
+   font-family: 'Poppins', sans-serif;
  }
 
  h4 {
    font-size: 20px;
+   font-family: 'Poppins', sans-serif;
  }
 
- /*img {
-   object-fit: contain;
- }*/
+ #logo {
+   font-size: 35px;
+   font-family: 'Pacifico', cursive;
+   float: left;
+   margin: 3px 0 7px 20px;
+   color: rgba(250,	128,	114,	1);
+ }
+
+ #title {
+   font-size: 110px;
+ }
+
+ #sticky-menu {
+   position: fixed;
+   z-index: 1;
+   font-family: 'Poppins', sans-serif;
+   top: 0%;
+   right: 0%;
+   width: 100%;
+   background-color: rgba(29,	29,	29, 1);
+   box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.5);
+ }
+
+ #sticky-menu a:hover {
+   color: rgba(250,	128,	114,	1);
+ }
+
+ .menu-item {
+   margin: 25px 30px 0 0;
+   display: inline-block;
+   font-weight: bolder;
+   float: right;
+ }
 
  #wrapper {
    display: flex;
@@ -75,10 +110,9 @@
  #search {
    width: 500px;
    height: 60px;
-   /*border-radius: 50px;*/
    border: none;
    font-size: 35px;
-   background-color: rgba(74,	74, 74, .7);
+   background-color: rgba(62,	62, 62, .5);
    color: rgba(250,	128,	114,	1);
    border-bottom: 2px solid white;
    text-align: center;
@@ -87,10 +121,6 @@
  #instructions {
    margin: 100px 0 0 0;
  }
-
-/*#title {
-  font-size: 100px;
-}*/
 
  .cells {
    flex-direction: row;
@@ -105,27 +135,12 @@
    margin: 20px;
    cursor: pointer;
    background-color: rgba(0, 0, 0, .5);
+   box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.5);
  }
 
  .thumbnails:hover {
-   /*width: 265px;
-   height: 265px;*/
    border: 3px solid white;
  }
-
- button {
-   margin: 100px auto 75px auto;
-   font-size: 20px;
-   padding: 10px;
-   width: 200px;
-   border: 3px solid white;
-   border-radius: 25px;
- }
-
- button:hover {
-   border-color: orange;
- }
-
 
  a.fav {
   text-decoration: none;
@@ -153,10 +168,12 @@ a.no-fav {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.7);
     z-index: 1;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 
 .dropdown-content a {
@@ -166,4 +183,6 @@ a.no-fav {
     display: block;
 }
 
-.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown-content a:hover {
+  background-color: #f1f1f1
+}

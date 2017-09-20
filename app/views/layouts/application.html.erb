@@ -1,41 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FOODIES ANON</title>
+    <title>Spoonfull</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   </head>
 
   <header>
-
-<!-- <div class="menu"></div>
-<div class="menu"></div>
-<div class="menu"></div>
-<div id="dropdown" class="dropdown-content">
-  <p> Test Item </p>
-  <p> Test Item </p>
-</div> -->
-
-    <nav><h4><%= link_to "Home", root_path %> |  <% if current_user %>
-      <%= link_to "Log Out", destroy_user_session_path, :method => :delete %> |
-      <%= link_to "My Cookbook", dashboard_recipe_path(current_user) %>
+    <div id="sticky-menu">
+      <div id="logo"> <%= link_to "Spoonfull", root_path %>  </div>
+      <% if current_user %>
+      <p class="menu-item"><%= link_to "LOG OUT", destroy_user_session_path, :method => :delete %></p>
+      <p class="menu-item"><%= link_to "MY COOKBOOK", dashboard_recipe_path(current_user) %></p>
+      <p class="menu-item"><%= link_to "HOME", root_path %> </p>
       <% else %>
         <div id="sign-in">
-          <%= link_to "Sign Up", new_user_registration_path %> |
-          <%= link_to 'Login', new_user_session_path %>
+          <p class="menu-item"><%= link_to "SIGN UP", new_user_registration_path %></p>
+          <p class="menu-item"><%= link_to 'LOGIN', new_user_session_path %></p>
+          <p class="menu-item"><%= link_to "HOME", root_path %> </p>
         </div>
-      <% end %> </h4></nav>
+      <% end %>
+    </div>
   </header>
 
   <body>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-
 
     <%= yield %>
   </body>

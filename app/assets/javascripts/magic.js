@@ -3,11 +3,9 @@ $(document).ready(function(){
 $('#dropdown').hide();
 
 $('.thumbnails').click(showMenu);
-$('.menu').click(showMenu);
-// $(document).click(hideMenu);
 
 function showMenu() {
-  $('#dropdown').show();
+  $(this).find("#dropdown").show()
 }
 
 function hideMenu() {
