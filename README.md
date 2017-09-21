@@ -1,24 +1,28 @@
-# README
+# Spoonfull
+> Spoonfull is a recipe discovery and saving tool.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Search for a recipe or ingredient and get (up to) 30 matching results, then save your favorite recipes to your virtual Cookbook!
 
-Things you may want to cover:
+## Technologies Used
+* Ruby v2.4.1p111
+* Rails 5.1.4
+* Food2Fork API (http://food2fork.com/about/api)
+* jQuery
 
-* Ruby version
+## Release History
+* 1.0
+  * First Release
 
-* System dependencies
+## Meta
+Developer: Bil Erdenekhuyag
+Email: bilgooday@gmail.com
+Github: https://github.com/bilgooday
 
-* Configuration
+## Contributing
+Want to help me make it even better?
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Fork it (<https://github.com/bilgooday/spoonfull/fork>)
+2. Create your feature branch (`git checkout -b feature/FeatureName`)
+3. Commit your changes (`git commit -m 'Add some Feature'`)
+4. Push to the branch (`git push origin feature/FeatureName`)
+5. Create a new Pull Request
