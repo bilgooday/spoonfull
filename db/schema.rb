@@ -10,20 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170919170145) do
+ActiveRecord::Schema.define(version: 20170915154913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "comments", id: :serial, force: :cascade do |t|
-    t.text "content"
-    t.integer "recipe_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.index ["recipe_id"], name: "index_comments_on_recipe_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
-  end
 
   create_table "favorites", id: :serial, force: :cascade do |t|
     t.integer "recipe_id"
@@ -45,16 +35,6 @@ ActiveRecord::Schema.define(version: 20170919170145) do
     t.text "source"
     t.integer "user_id"
     t.index ["user_id"], name: "index_recipes_on_user_id"
-  end
-
-  create_table "searches", id: :serial, force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.string "img_url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.text "f2f_id"
-    t.text "source"
   end
 
   create_table "users", id: :serial, force: :cascade do |t|

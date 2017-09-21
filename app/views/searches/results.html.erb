@@ -6,22 +6,24 @@
 <% end %>
 
 <% if current_user %>
-<h3 id="instructions"> Click on a recipe to add it to your cookbook! </h3>
+<h3 id="instructions"> DOUBLE CLICK on a recipe to add it to your Cookbook! </h3>
 <% else %>
-<h3 id="instructions"> You must be signed in to save recipes! </h3>
+<h3 id="instructions"> You must be signed in to save recipes to your Cookbook! </h3>
 <% end %>
 <% if (@recipes.nil? or @recipes == []) %>
 <p> <h2>No recipes found.. Sorry</h2></p>
-<% else %>
 
+<% else %>
 <div id="dash-wrapper">
 <% @recipes.each do |recipe| %>
   <div class="thumbnails" style="background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(<%= recipe.img_url %>)" id=<%= "thumb#{recipe.id}" %>>
+
     <% if current_user %>
     <p id="thumb-text"><%= recipe.title %> </p>
     <% else %>
     <p id="thumb-text"><%= link_to recipe.title, recipe.source %> </p>
       <% end %>
+
       <div id="dropdown" class="dropdown-content">
         <p> <%= link_to "View Recipe", recipe.source %> </p>
         <hr>
@@ -29,5 +31,5 @@
       </div>
   </div>
 <% end %>
-</div>
 <% end %>
+</div>

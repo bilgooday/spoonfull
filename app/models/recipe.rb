@@ -17,6 +17,7 @@ class Recipe < ApplicationRecord
       new_entry.img_url = r['image_url']
       new_entry.source = r['source_url']
 
+
       new_entry.save
       new_entry
   end

@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Spoonfull</title>
+    <%= favicon_link_tag 'spoon.png' %>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -12,28 +13,48 @@
   </head>
 
   <header>
+    
     <div id="sticky-menu">
       <div id="logo"> <%= link_to "Spoonfull", root_path %>  </div>
       <% if current_user %>
-      <p class="menu-item"><%= link_to "LOG OUT", destroy_user_session_path, :method => :delete %></p>
-      <p class="menu-item"><%= link_to "MY COOKBOOK", dashboard_recipe_path(current_user) %></p>
-      <p class="menu-item"><%= link_to "HOME", root_path %> </p>
+        <p class="menu-item"><%= link_to "LOG OUT", destroy_user_session_path, :method => :delete %></p>
+        <p class="menu-item"><%= link_to "MY COOKBOOK", dashboard_recipe_path(current_user) %></p>
+        <p class="menu-item"><%= link_to "SEARCH", root_path %> </p>
       <% else %>
         <div id="sign-in">
           <p class="menu-item"><%= link_to "SIGN UP", new_user_registration_path %></p>
           <p class="menu-item"><%= link_to 'LOGIN', new_user_session_path %></p>
-          <p class="menu-item"><%= link_to "HOME", root_path %> </p>
+          <p class="menu-item"><%= link_to "SEARCH", root_path %> </p>
         </div>
       <% end %>
     </div>
+
   </header>
 
   <body>
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
     <%= yield %>
+
+    <!-- <div class="menu-icon"></div>
+    <div class="menu-icon"></div>
+    <div class="menu-icon"></div>
+
+    <div id="mobile-menu">
+    <% if current_user %>
+      <p class="menu-item"><%= link_to "LOG OUT", destroy_user_session_path, :method => :delete %></p>
+      <p class="menu-item"><%= link_to "MY COOKBOOK", dashboard_recipe_path(current_user) %></p>
+      <p class="menu-item"><%= link_to "SEARCH", root_path %> </p>
+    <% else %>
+      <div id="sign-in">
+        <p class="menu-item"><%= link_to "SIGN UP", new_user_registration_path %></p>
+        <p class="menu-item"><%= link_to 'LOGIN', new_user_session_path %></p>
+        <p class="menu-item"><%= link_to "SEARCH", root_path %> </p>
+      </div>
+    <% end %>
+    </div> -->
+
+    <p id="message" class="notice"><%= notice %></p>
+    <p id="message" class="alert"><%= alert %></p>
+
   </body>
 
 </html>

@@ -8,7 +8,3 @@
 
 User.destroy_all
 Recipe.destroy_all
-Comment.destroy_all
-
-andy = User.create(email: 'andy@andy.com', password: 'password', username: 'bob1')
-bob = User.create(email: 'antibob@bob.com', password: 'password', username: 'bob2')
